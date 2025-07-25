@@ -1,0 +1,252 @@
+@font-face {
+  font-family: 'MilkyWay';
+  src: url('fonts/Milkyway\ DEMO.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Nexa';
+    src: url(fonts/Nexa-Heavy.ttf) format('truetype');
+}
+
+
+ * {
+    box-sizing: border-box;
+ }
+
+
+body{
+    background-color: #4DA8DA;
+    margin: 0   ;
+    scroll-behavior: smooth;
+}
+
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 50%; /*why does this work to center it */
+    transform: translateX(-50%);
+    width: 90%;
+    background: #F5F5F5;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 0.5rem 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 4px 10px   rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    margin: 0 auto;
+    max-width: 1200px;
+    min-width: 10px;
+    align-items: center;
+    padding: 0.5rem 1rem;
+
+}
+
+/* .navbar .logo{
+    color: rgb(238, 146, 161);
+    transform: translateY(-2px);
+    font-size: 1.5rem;
+} */
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: rgb(238, 146, 161);
+    transform: translateY(-2px);
+    font-size: 1.5rem;
+   
+}
+
+.logo:hover{
+    cursor: pointer;
+    color: #4DA8DA;
+}
+
+.navbar a{
+    color: #F5f5f5;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Nexa';
+    background-color: #FFD66B;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    transform: translateY(-1px);
+    box-shadow: 0 0 0 transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.toggle-btn{
+    transform: translateY(px);
+    font-size: 1.5rem;
+    
+}
+
+.toggle-btn:hover{
+    color: #FFD66B;
+    cursor: pointer;
+}
+
+.navbar a:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/*dropdown*/
+.drop-down{
+    position: fixed;
+    right: 3rem;
+    top: 7px;
+    background: #F5F5F5;
+    backdrop-filter: blur(15px);
+    border-radius:  10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none; /* Prevent interaction when hidden */
+}
+
+.drop-down a{
+    padding: 5px 2px; /* Padding inside each link */
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-family: nexa;
+    color: #FFD66B;
+}
+
+.drop-down a:hover {
+    transform: translateY(-3px);
+    background-color: rgba(0, 0, 0, 0.1);
+
+}
+
+.drop-down.open {
+    opacity: 1; /* Show when open */
+    transform: translateY(0);
+    pointer-events: auto; /* Allow interaction when open */
+}
+
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+        width: 30%;
+    }
+    
+    .navbar a {
+        display: none;
+    }
+    
+    .toggle-btn {
+        display: flex;
+        align-items: center;
+    }
+    
+    .logo {
+        order: 1;
+    }
+    
+    .toggle-btn {
+        order: 2;
+    }
+}
+
+h1 {
+    font-family: 'MilkyWay';
+    font-size: clamp(2rem, 8vw, 6rem);
+    color: #F5F5F5;
+    font-weight: 1;
+
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+
+    max-width: clamp(300px, 80vw, 800px);
+    margin-inline: auto;
+
+
+
+}
+
+
+ p{
+    font-family: 'Nexa';
+    font-size: clamp(0.9rem, 2vw, 1.3rem);
+    display: flex;
+    justify-content: center;
+    margin-top: clamp(-3em, -4vw, -2em);
+    color: #F5F5F5;
+    max-width: 500px;
+    margin-inline: auto;
+    text-align: center;
+}
+
+
+section{
+    font-family: nexa;
+     min-height: 100vh; /* Each section takes full screen height */
+    padding: 80px 20px 20px 20px; /* Top padding to account for fixed navbar */
+    background-color: #80D8C3;
+    scroll-margin-top: 80px; /* Offset for fixed navbar when scrolling */
+}
+
+
+
+
+ /* @media screen and (max-width: 768px) {
+            .navbar {
+                width: 95%;
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+            
+            .navbar a {
+                font-size: 0.9rem;
+            }
+            
+            h1 {
+                font-size: 300%;
+                margin-top: 80px;
+                text-align: center;
+                padding: 0 20px;
+            }
+            
+            p {
+                text-align: center;
+                padding: 0 20px;
+                margin-top: -3em;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .navbar {
+                width: 98%;
+                gap: 0.5rem;
+            }
+            
+            .navbar a {
+                font-size: 0.8rem;
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+            
+            h1 {
+                font-size: 250%;
+                margin-top: 90px;
+            }
+            
+            p {
+                font-size: 90%;
+                margin-top: -2.5em;
+            }
+        } */
