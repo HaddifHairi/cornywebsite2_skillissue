@@ -100,7 +100,7 @@ body{
     left: 50%; /* Center it like the navbar */
     transform: translateX(-50%); /* Center it horizontally */
     top: 70px; /* Position it below the navbar */
-    width: 90%; /* Match navbar width */
+    width: 50%; /* Match navbar width */
     max-width: 1200px; /* Match navbar max-width */
     background: #F5F5F5;
     backdrop-filter: blur(15px);
@@ -142,14 +142,14 @@ body{
 /* Mobile adjustments */
 @media screen and (max-width: 768px) {
     .drop-down {
-        width: 95%; /* Match mobile navbar width */
+        width: 50%; /* Match mobile navbar width */
         top: 65px;
     }
 }
 
 @media screen and (max-width: 480px) {
     .drop-down {
-        width: 98%; /* Match small mobile navbar width */
+        width: 50%; /* Match small mobile navbar width */
         top: 60px;
     }
 }
