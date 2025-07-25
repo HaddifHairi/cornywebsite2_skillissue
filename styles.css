@@ -95,13 +95,16 @@ body{
 }
 
 /*dropdown*/
-.drop-down{
+.drop-down {
     position: fixed;
-    right: 3rem;
-    top: 7px;
+    left: 50%; /* Center it like the navbar */
+    transform: translateX(-50%); /* Center it horizontally */
+    top: 70px; /* Position it below the navbar */
+    width: 90%; /* Match navbar width */
+    max-width: 1200px; /* Match navbar max-width */
     background: #F5F5F5;
     backdrop-filter: blur(15px);
-    border-radius:  10px;
+    border-radius: 10px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -109,9 +112,10 @@ body{
     padding: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateX(-50%) translateY(-10px); /* Combine transforms */
     transition: opacity 0.3s ease, transform 0.3s ease;
-    pointer-events: none; /* Prevent interaction when hidden */
+    pointer-events: none;
+    z-index: 1001;
 }
 
 .drop-down a{
@@ -130,11 +134,25 @@ body{
 }
 
 .drop-down.open {
-    opacity: 1; /* Show when open */
-    transform: translateY(0);
-    pointer-events: auto; /* Allow interaction when open */
+    opacity: 1;
+    transform: translateX(-50%) translateY(0); /* Keep centered when open */
+    pointer-events: auto;
 }
 
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+    .drop-down {
+        width: 95%; /* Match mobile navbar width */
+        top: 65px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .drop-down {
+        width: 98%; /* Match small mobile navbar width */
+        top: 60px;
+    }
+}
 
 
 @media screen and (max-width: 768px) {
