@@ -282,6 +282,33 @@ section h3{
 
 }
 
+@keyframes fallDown {
+    0% {
+        transform: translateY(-50px) translateX(0) rotate(var(--initial-rotation, 0deg));
+        opacity: 1;
+    }
+    25% {
+        transform: translateY(25vh) translateX(calc(var(--sway) * 0.3)) rotate(calc(var(--initial-rotation, 0deg) + 90deg));
+    }
+    50% {
+        transform: translateY(50vh) translateX(calc(var(--sway) * 0.7)) rotate(calc(var(--initial-rotation, 0deg) + 180deg));
+    }
+    75% {
+        transform: translateY(75vh) translateX(var(--sway)) rotate(calc(var(--initial-rotation, 0deg) + 270deg));
+    }
+    100% {
+        transform: translateY(100vh) translateX(var(--sway)) rotate(calc(var(--initial-rotation, 0deg) + 360deg));
+        opacity: 0.3;
+    }
+}
+
+.falling-heart {
+    position: fixed;
+    pointer-events: none;
+    user-select: none;
+    z-index: 9999;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 
 
 

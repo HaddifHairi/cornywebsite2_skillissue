@@ -149,3 +149,110 @@ function simpleLoveTimer() {
 
 // For the simple version, use this instead:
 // setInterval(simpleLoveTimer, 1000);
+
+
+// Heart rain function
+function createFallingHeart() {
+    const heart = document.createElement('div');
+    heart.innerHTML = '❤️';
+    heart.className = 'falling-heart';
+    
+    // Random starting position across the screen width
+    const startX = Math.random() * window.innerWidth;
+    const size = Math.random() * 20 + 15; // Random size between 15px and 35px
+    const duration = Math.random() * 3 + 2; // Fall duration between 2-5 seconds
+    const rotation = Math.random() * 360; // Random rotation
+    const sway = Math.random() * 100 - 50; // Horizontal sway (-50px to +50px)
+    
+    // Set initial styles
+    heart.style.position = 'fixed';
+    heart.style.left = startX + 'px';
+    heart.style.top = '-50px';
+    heart.style.fontSize = size + 'px';
+    heart.style.pointerEvents = 'none';
+    heart.style.zIndex = '9999';
+    heart.style.userSelect = 'none';
+    heart.style.transform = `rotate(${rotation}deg)`;
+    heart.style.opacity = Math.random() * 0.7 + 0.3; // Random opacity
+    
+    // Animation properties
+    heart.style.animation = `fallDown ${duration}s linear forwards`;
+    heart.style.setProperty('--sway', sway + 'px');
+    
+    document.body.appendChild(heart);
+    
+    // Remove heart after animation completes
+    setTimeout(() => {
+        if (heart.parentNode) {
+            heart.parentNode.removeChild(heart);
+        }
+    }, duration * 1000);
+}
+
+// Create multiple hearts
+function startHeartRain() {
+    const heartCount = 15; // Number of hearts to create
+    
+    for (let i = 0; i < heartCount; i++) {
+        setTimeout(() => {
+            createFallingHeart();
+        }, i * 100); // Stagger the hearts every 100ms
+    }
+}
+
+// Add click event to logo
+document.addEventListener('DOMContentLoaded', function() {
+    const logo = document.querySelector('.logo');
+    
+    if (logo) {
+        logo.addEventListener('click', function(e) {
+            e.preventDefault();
+            startHeartRain();
+            
+            // Add a little bounce effect to the logo
+            logo.style.transform = 'translateY(-2px) scale(1.2)';
+            setTimeout(() => {
+                logo.style.transform = 'translateY(-2px) scale(1)';
+            }, 200);
+        });
+        
+        // Add smooth transition for logo transform
+        logo.style.transition = 'transform 0.2s ease';
+    }
+});
+
+// CSS Animation (add this to your CSS file)
+const heartStyles = `
+@keyframes fallDown {
+    0% {
+        transform: translateY(-50px) translateX(0) rotate(var(--initial-rotation, 0deg));
+        opacity: 1;
+    }
+    25% {
+        transform: translateY(25vh) translateX(calc(var(--sway) * 0.3)) rotate(calc(var(--initial-rotation, 0deg) + 90deg));
+    }
+    50% {
+        transform: translateY(50vh) translateX(calc(var(--sway) * 0.7)) rotate(calc(var(--initial-rotation, 0deg) + 180deg));
+    }
+    75% {
+        transform: translateY(75vh) translateX(var(--sway)) rotate(calc(var(--initial-rotation, 0deg) + 270deg));
+    }
+    100% {
+        transform: translateY(100vh) translateX(var(--sway)) rotate(calc(var(--initial-rotation, 0deg) + 360deg));
+        opacity: 0.3;
+    }
+}
+
+.falling-heart {
+    position: fixed;
+    pointer-events: none;
+    user-select: none;
+    z-index: 9999;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+`;
+
+// Inject CSS styles
+const styleSheet = document.createElement('style');
+styleSheet.textContent = heartStyles;
+document.head.appendChild(styleSheet);
