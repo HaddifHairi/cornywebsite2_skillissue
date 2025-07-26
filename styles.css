@@ -52,7 +52,7 @@ body{
 .logo {
     display: flex;
     align-items: center;
-    color: rgb(238, 146, 161);
+    color: #ee92a1;
     transform: translateY(-2px);
     font-size: 1.5rem;
    
@@ -213,7 +213,7 @@ h1 {
 
 section{
     font-family: nexa;
-    min-height: 100vh; /* Each section takes full screen height */
+    /*min-height: 100vh; Each section takes full screen height */
     padding: 80px 20px 20px 20px; /* Top padding to account for fixed navbar */
     background-color: #80D8C3;
     scroll-margin-top: 80px; /* Offset for fixed navbar when scrolling */
@@ -223,9 +223,65 @@ section{
 
 }
 
+
+
 section h3{
     margin-top:  -70px;
 }
+
+
+.love-timer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+.time-unit {
+    text-align: center;
+    background: #F5f5f5;
+    padding: 1.5rem;
+    border-radius: 15px;
+    min-width: 80px;
+}
+
+.time-unit .number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffa1b1;
+}
+
+.time-unit .label {
+    display: block;
+    font-size: 0.9rem;
+    color: #000000;
+    margin-top: 0.5rem;
+}
+
+
+
+.total-stats {
+    margin-top: 2rem;
+   
+    background-color: #4DA8DA;
+    border-radius: 9px;
+    padding: 10px;
+    width: 100%;
+    max-width: none;
+}
+
+.total-stats p {
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between ;
+    width: 100%;
+    max-width: none;
+
+}
+
 
 
 
