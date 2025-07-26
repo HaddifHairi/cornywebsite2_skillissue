@@ -236,6 +236,7 @@ section h3{
     gap: 2rem;
     flex-wrap: wrap;
     margin: 2rem 0;
+    
 }
 
 .time-unit {
@@ -244,6 +245,7 @@ section h3{
     padding: 1.5rem;
     border-radius: 15px;
     min-width: 80px;
+    box-shadow: 0 4px 10px   rgba(0, 0, 0, 0.2);
 }
 
 .time-unit .number {
